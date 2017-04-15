@@ -1,4 +1,4 @@
 # GoogleCodeJam
-I created this repository to organize my Google Code Jam solutions. Some are tidier than others. For now, they were all written in C++.
+This repository was created to organize my Google Code Jam solutions, all of them in C++. Some are tidier than others.
 
 Disclaimer: solutions are only pushed to the repository after the contest is over.
