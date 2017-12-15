@@ -7,11 +7,7 @@ ${P}: ${P}.cpp
 	${CXX} ${P}.cpp -o ${P} ${CXXFLAGS}
 
 run: ${P}
-	./${P} < ${P}.in > out
-	cat out
-
-test: run
-	diff ${P}.out out
+	./${P}
 
 clean:
 	rm -f A B C D
