@@ -26,7 +26,7 @@ int main() {
   }
 
   /* Checks if the suspect actually won */
-  cilk::reducer< cilk::op_add<int> > total_votes(0);
+  cilk::reducer< cilk::op_add<long long> > total_votes(0);
   cilk_for(long long i = 0; i < GetN(); i++){
     if(GetVote(i) == current_suspect){
       *total_votes += 1;
