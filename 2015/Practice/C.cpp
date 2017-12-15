@@ -4,13 +4,17 @@
 #include <vector>
 #include "input/test_1.h"
 
+/* 'long long' is a long name for a type */
+#define ll long long
+
 using namespace std;
 
 int main() {
 
   /* Find a suspect of being the majority */
-  long long current_suspect, number_of_votes = 0;
-  for(long long i = 0; i < GetN(); i++){
+  ll current_suspect, number_of_votes = 0;
+  for(ll i = 0; i < GetN(); i++){
+    
     if(number_of_votes == 0){
       current_suspect = GetVote(i);
       number_of_votes++;
@@ -26,8 +30,8 @@ int main() {
   }
 
   /* Checks if the suspect actually won */
-  cilk::reducer< cilk::op_add<long long> > total_votes(0);
-  cilk_for(long long i = 0; i < GetN(); i++){
+  cilk::reducer< cilk::op_add<ll> > total_votes(0);
+  cilk_for(ll i = 0; i < GetN(); i++){
     if(GetVote(i) == current_suspect){
       *total_votes += 1;
     }
