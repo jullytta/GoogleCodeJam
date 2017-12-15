@@ -8,6 +8,7 @@ ${P}: ${P}.cpp
 
 run: ${P}
 	./${P} < ${P}.in > out
+	cat out
 
 test: run
 	diff ${P}.out out
