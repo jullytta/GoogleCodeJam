@@ -1,6 +1,7 @@
+#include <cilk/cilk.h>
+#include <cilk/reducer_opadd.h>
 #include <iostream>
 #include <vector>
-#include <cilk/cilk.h>
 #include "input/test_1.h"
 
 using namespace std;
@@ -25,15 +26,15 @@ int main() {
   }
 
   /* Checks if the suspect actually won */
-  long long total_votes = 0;
-  for(long long i = 0; i < GetN(); i++){
+  cilk::reducer< cilk::op_add<int> > total_votes(0);
+  cilk_for(long long i = 0; i < GetN(); i++){
     if(GetVote(i) == current_suspect){
-      total_votes++;
+      *total_votes += 1;
     }
   }
 
   /* More than half of the votes = majority */
-  if(total_votes > GetN()/2){
+  if(total_votes.get_value() > GetN()/2){
     cout << current_suspect << endl;
   }
   else {

@@ -1,10 +1,10 @@
 P=C
 CXX=g++
-CXXFLAGS=-std=c++11 -Wall
+CXXFLAGS=-std=c++11
 CILKFLAGS=-fcilkplus
 
 ${P}: ${P}.cpp
-	${CXX} ${P}.cpp -o ${P} ${CXXFLAGS}
+	${CXX} ${P}.cpp -o ${P} ${CXXFLAGS} ${CILKFLAGS}
 
 run: ${P}
 	./${P}
