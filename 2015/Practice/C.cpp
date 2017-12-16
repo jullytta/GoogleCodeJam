@@ -84,8 +84,7 @@ int main() {
       cout << "NO WINNER" << endl;
     }
   }
-
-
+  
   return 0;
 
 }
